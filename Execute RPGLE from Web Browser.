@@ -1,0 +1,46 @@
+Step 1:-
+Create Pf
+*************** Beginning of data *************************************
+                R PF01R                                                
+                  NAME          10A                                    
+                  TIME            Z                                    
+****************** End of data ****************************************
+
+Step 2:-
+Create RPGLE program
+*************** Beginning of data *************************************
+H                                                                      
+FPF01      uf a e             disk                                     
+                                                                       
+D PSDS           SDS                                                   
+D PgmName               254    263a                                    
+                                                                       
+C                                                                      
+ /Free                                                                 
+        Name = PgmName;                                                
+        Time = %Timestamp();                                           
+        Write PF01R;                                                   
+        *inlr = *on;                                                   
+        return;                                                        
+ /End-Free                                                             
+****************** End of data ****************************************
+
+Step 3:-
+Edit the configuration page of Apache server by adding below command.
+
+ScriptAliasMatch /tushar/([a-z0-9]+) /Qsys.Lib/Tushar.Lib/$1.pgm   
+<Directory /Qsys.Lib/Tushar.Lib>                                   
+  order allow,deny                                                 
+  allow from all                                                   
+</Directory>                                                       
+
+------------------------------------------------------------------------
+Note:- Here Tushar is a library. You can write your own library name in which you created your rpgle program.
+
+
+Step 4:- Restart the Apache Server.
+strtcpsvr server(*http) restart(*http)  httpsvr(apachedft)
+
+Step 5:- Go the browser and enter your IP address/(your library)/(program name). For Example:- http://129.40.58.1/tushar/rpg01
+
+step 6:- After pressing enter in the URL, your RPGLE program get executed by browser. 
