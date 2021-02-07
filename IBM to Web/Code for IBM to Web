@@ -1,0 +1,33 @@
+     H
+     FPF01      uf a e             disk
+
+     D PSDS           SDS
+     D PgmName               254    263a
+
+     D
+     D WriteToWeb      PR                  ExtProc('QtmhWrStout')
+     D DataVar                    65535A   Options(*Varsize)
+     D DataVarLen                    10I 0 Const
+     D ErrorCode                   8000A   Options(*Varsize)
+      *
+     D ErrDs           DS                  Qualified
+     D BytesProv                     10I 0 Inz(0)
+     D BytesAvail                    10I 0 Inz(0)
+      *
+     D CRLF            C                   x'0d25'
+     D Data            S           5000A
+      *
+     D LogMsg          S            100A
+      *
+     C
+      /Free
+             Name = PgmName;
+             Time = %Timestamp();
+             Data = 'Content-type: Text/Html' + CRLF + CRLF ;
+             LogMsg = %trim(PgmName) + %char(%Timestamp());
+             Data = %trimR(Data) + %trim(LogMsg) ;
+             WriteToWeb(Data : %len(%trim(Data)): ErrDs);
+             Write PF01R;
+             *inlr = *on;
+             return;
+      /End-Free
