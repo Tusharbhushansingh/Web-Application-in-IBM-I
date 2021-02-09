@@ -9,7 +9,7 @@ Step 2: - After running the above command you can see your Http Server subsystem
 
 ![image](https://user-images.githubusercontent.com/42302678/107362876-5af2d300-6aff-11eb-816e-be6f7071d7b5.png)
  
-Step 3: - If not Http Server is not installed then run below command.
+Step 3: - If Http Server is not installed then run below command.
 
                STRTCPSVR *HTTP HTTPSVR(*ADMIN)
                
@@ -23,7 +23,7 @@ Step 5: - Go to Brower and enter your as400 IP/index.html in the URL and below p
  
 Step 6: - To create your own Web page, Open directory /www/apachedft/conf and your directory by using Alias as shown below.
 
-![image](https://user-images.githubusercontent.com/42302678/107363017-91c8e900-6aff-11eb-83b3-3e6fce429a96.png
+![image](https://user-images.githubusercontent.com/42302678/107363017-91c8e900-6aff-11eb-83b3-3e6fce429a96.png)
  
 Step 7: - Restart the Apache Server by below command.
 
