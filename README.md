@@ -22,9 +22,11 @@ allow from all
  
  
 Step 6: - Restart the Apache Server by below command.
+
 STRTCPSVR SERVER(*HTTP) RESTART(*HTTP) HTTPSVR(APACHEDFT)
 
 Step 7: - Create new Directory in Home by using below command.
+
 CRTDIR DIR('Home/Tushar')
 
 Step 8: - Add the Html code in your Directory. Ex- Home/Tushar/Welcome.html.
