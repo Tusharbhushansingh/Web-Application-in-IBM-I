@@ -21,7 +21,7 @@ Step 5: - Go to Brower and enter your as400 IP/index.html in the URL and below p
 
 ![image](https://user-images.githubusercontent.com/42302678/107362985-82e23680-6aff-11eb-8c49-10dc38f0bde4.png)
  
-Step 6: - To create your own Web page, Open directory /www/apachedft/conf and your directory by using Alias as shown below.
+Step 6: - To create your own Web page, Open directory /www/apachedft/conf and add the path of your file in the conf file by using Alias as shown below.
 
 ![image](https://user-images.githubusercontent.com/42302678/107363017-91c8e900-6aff-11eb-83b3-3e6fce429a96.png)
  
