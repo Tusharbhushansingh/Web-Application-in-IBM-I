@@ -8,13 +8,13 @@ Step 2: - After getting the QZHBCGI object, Check the service program of QHTTPSV
 
     dspsrvpgm Qhttpsvr/Qzhbcgi
 
-**Below is the highlighted Procedure which we are going to use.
+**Below is the highlighted Procedure which we are going to use.**
 
 ![image](https://user-images.githubusercontent.com/42302678/107365601-08b3b100-6b03-11eb-8ae7-215a66f970e6.png)
  
 Step 3: - Create RPGLE program with above procedure. You can take references from the code shared with name RPG01.
 
-Step 4: - Compile the program with module and bind your program with the service of QHTTPSVR/QZHBCGI
+Step 4: - Compile the program with module and bind your program with the service of **QHTTPSVR/QZHBCGI**
 
 Step 5:- Finally enter your As400 Ip/lib name/program in the URL and Message will be displayed as shown below.
 
