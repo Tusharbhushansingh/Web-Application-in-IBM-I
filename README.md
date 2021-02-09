@@ -14,13 +14,12 @@ Step 5: - To create your own Web page, Open directory /www/apachedft/conf and yo
 
 Alias /mydocs/ /Home/Tushar/
 
-<Directory /Home/Tushar>                           
+<Directory  /Home/Tushar>                           
 
 order allow,deny                                                     
-
 allow from all                                                       
-
 </Directory>    
+ 
  
 Step 6: - Restart the Apache Server by below command.
 STRTCPSVR SERVER(*HTTP) RESTART(*HTTP) HTTPSVR(APACHEDFT)
