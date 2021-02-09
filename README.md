@@ -13,9 +13,13 @@ Step 4: - Go to Brower and enter your as400 IP/index.html in the URL.
 Step 5: - To create your own Web page, Open directory /www/apachedft/conf and your directory by using Alias as shown below.
 
 Alias /mydocs/ /Home/Tushar/
+
 <Directory /Home/Tushar>                           
-  order allow,deny                                                     
-  allow from all                                                       
+
+order allow,deny                                                     
+
+allow from all                                                       
+
 </Directory>    
  
 Step 6: - Restart the Apache Server by below command.
