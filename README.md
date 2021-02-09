@@ -20,7 +20,6 @@ Step 4: -Start the Apache server by running below command.
 Step 5: - Go to Brower and enter your as400 IP/index.html in the URL and below page will appear.
 
 ![image](https://user-images.githubusercontent.com/42302678/107362985-82e23680-6aff-11eb-8c49-10dc38f0bde4.png) 
-![https://user-images.githubusercontent.com/42302678/107362985-82e23680-6aff-11eb-8c49-10dc38f0bde4.png](https://www.google.com)
  
 Step 6: - To create your own Web page, Open directory /www/apachedft/conf and add the path of your file in the conf file by using Alias as shown below.
 
