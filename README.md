@@ -13,7 +13,7 @@ Step 3: -Start the Apache server by running below command.
 
 Step 4: - Go to Brower and enter your as400 IP/index.html in the URL.
  
-Step 5: - To create your own Web page, Open directory /www/apachedft/conf and your directory by using Alias as shown below.
+Step 5: - To create your own Web page, Open directory /www/apachedft/conf and add the Alias command as shown below.
 
 ![image](https://user-images.githubusercontent.com/42302678/107362382-af498300-6afe-11eb-98ca-9fdeca3cc52c.png)
  
