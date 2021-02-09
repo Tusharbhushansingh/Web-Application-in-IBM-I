@@ -1,11 +1,14 @@
 # Web-Application-in-IBM-I
 Step 1: - Check the Http Server is installed or not in your system by running below command.
+
                 WRKACTJOB SBS(QHTTPSVR)
  
 Step 2: - If not Http Server is not installed then run below command.
+
 STRTCPSVR *HTTP HTTPSVR(*ADMIN)
 
 Step 3: -Start the Apache server by running below command.
+
 STRTCPSVR SERVER(*HTTP) HTTPSVR(APACHEDFT)
 
 Step 4: - Go to Brower and enter your as400 IP/index.html in the URL.
