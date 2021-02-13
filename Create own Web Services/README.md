@@ -18,7 +18,7 @@ Step 1:- Firstly update the Configuration file of Apache Server as shown below.
  
  Step 4:- Bind your program with QZHBCGI and QC2LE services program by using below command.
  
-    CRTPGM PGM(TUSHAR/RPG03) MODULE(TUSHAR/RPG03) BNDSRVPGM((QHTTPSVR/QZHBCGI) (QHTTPSVR/QC2LE)) 
+    CRTPGM PGM(TUSHAR/RPG03) MODULE(TUSHAR/RPG03) BNDSRVPGM((QHTTPSVR/QZHBCGI) (QSYS/QC2LE)) 
     
  Step 5:- Open Web browser and enter your as400 IP/tushar/RPG03/1 in the URL and your customize web services will appear in XML format as shown below.
  
