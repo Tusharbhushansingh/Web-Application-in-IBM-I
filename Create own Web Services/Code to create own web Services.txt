@@ -1,0 +1,73 @@
+     H
+     FSTUDENT   IF   E           K disk
+
+     D PSDS           SDS
+     D PgmName               254    263a
+
+      *
+     D GetEnv          PR              *   ExtProc('getenv')
+     D Var                             *   value options(*string)
+
+
+      *
+     D
+     D WriteToWeb      PR                  ExtProc('QtmhWrStout')
+     D DataVar                    65535A   Options(*Varsize)
+     D DataVarLen                    10I 0 Const
+     D ErrorCode                   8000A   Options(*Varsize)
+      *
+     D ErrDs           DS                  Qualified
+     D BytesProv                     10I 0 Inz(0)
+     D BytesAvail                    10I 0 Inz(0)
+      *
+     D CRLF            C                   x'0d25'
+     D Data            S           5000A
+      *
+     D LogMsg          S            100A
+      *
+     D Stud            S              5S 0
+     D URL             S           1000A   Inz
+     D Parm            S            100A   Inz
+     D Pos             S             10I 0
+      *
+     C     StudKey       Klist
+     C                   KFld                    Stud
+     C
+     C
+      /Free
+             Data = 'Content-type: Text/Xml' + CRLF + CRLF ;
+             WriteToWeb(Data : %len(%trim(Data)): ErrDs);
+
+             URL =  %Str( GetEnv('REQUEST_URI') );
+             Parm = '/RPG03/';
+             pos = %Scan(%Trim(Parm):URL) + %len(%trim(Parm));
+
+
+             Monitor;
+               Stud = %Int(%Subst(URL:pos:10));
+             On-Error;
+               Data = '<Error> Invalid URL </Error>';
+               WriteToWeb(Data : %len(%trim(Data)): ErrDs);
+               Return;
+             EndMon;
+
+             Data = '<Student>' + CRLF;
+             WriteToWeb(Data : %len(%trim(Data)): ErrDs);
+             Chain StudKey Student;
+             If %Found;
+               Data = '<StduentID>' + %Char(StudNo) + '</StduentID>'+CRLF+
+                      '<StudentName>' + StudName + '</StudentName>'+CRLF+
+                      '<StudentMarks>'+%Char(StudMarks)+'</StudentMarks>'+CRLF+
+                      '<StudentResult>'+  StudResult + '</StudentResult>'+CRLF+
+                      '<Status>Success</Status>';
+               WriteToWeb(Data : %len(%trim(Data)): ErrDs);
+             Else;
+               Data = '<Status>Student not found</Status>'+CRLF;
+               WriteToWeb(Data : %len(%trim(Data)): ErrDs);
+             Endif;
+             Data = '</Student>' + CRLF;
+             WriteToWeb(Data : %len(%trim(Data)): ErrDs);
+
+             *inlr = *on;
+             return;
+      /End-Free
