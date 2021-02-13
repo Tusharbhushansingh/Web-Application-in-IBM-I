@@ -10,7 +10,7 @@ Step 1:- Firstly update the Configuration file of Apache Server as shown below.
          
  ![image](https://user-images.githubusercontent.com/42302678/107846042-85e26d00-6e06-11eb-827d-1ff8c68e1f11.png)
  
- Step 2:- Create a new program to connect you IBM i to Web Browser. You can take reference from below link or *Code to Create own Web Services.txt*.
+ Step 2:- Create a new program to connect your IBM i to Web Browser. You can take reference from below link or *Code to Create own Web Services.txt*.
  
  link:- [Code to Create own Web Services.txt](https://github.com/Tusharbhushansingh/Web-Application-in-IBM-I/blob/main/Create%20own%20Web%20Services/Code%20to%20create%20own%20web%20Services.txt)
  
