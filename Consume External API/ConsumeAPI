@@ -1,0 +1,65 @@
+     H DftActGrp(*No)
+      *
+
+     D Cmd             PR                  ExtPgm('QCMDEXC')
+     D                              263A   Options(*Varsize)
+     D                               15P 5 Const
+      *
+     D Command         S            200A
+     D Response        S           4096A   Inz
+     D Url             S            200A
+     D Pos             S              5P 0 Inz
+      *
+     C     *Entry        Plist
+     C                   Parm                    Url
+     C
+     C
+      /Free
+
+         Pos = %Scan(' ':Url);
+         If Pos > 0;
+           Url = %Trim(%Subst(Url:1:pos-1));
+         Endif;
+
+         Command = 'CHGJOB CCSID(37)';
+         Cmd(Command:%len(%Trim(Command)));
+
+         Exec Sql
+            Set Option commit = *None;
+
+         Exec Sql
+            Drop table Qtemp/Store;
+
+         Exec Sql
+            Create table Qtemp/Store (Data varchar(4096));
+
+         Exec Sql
+            Declare C1 Cursor for
+            Select data from(values char
+             (systools.httpgetclob(:Url,''),4096)
+            ) WS(data);
+
+         Exec Sql
+            Open C1;
+
+         Exec Sql
+            Fetch C1 into :Response;
+
+         Exec Sql
+            Insert into Qtemp/Store values(:Response);
+
+         Exec Sql
+            Close C1;
+
+         Command = 'CPYTOIMPF FROMFILE(QTEMP/STORE) '+
+                   'TOSTMF(''/home/tushar/http_get_res.txt'') '+
+                   'RCDDLM(*CRLF) STRDLM(*NONE) MBROPT(*REPLACE)';
+
+         Cmd(Command:%len(%trim(Command)));
+
+         Command = 'DSPF ''/home/tushar/http_get_res.txt''';
+         Cmd(Command:%len(%trim(Command)));
+
+         *inlr = *on;
+      /End-Free
+
