@@ -19,5 +19,11 @@ Step 4: - Compile the program with module and bind your program with the service
 Step 5:- Finally enter your As400 Ip/lib name/program in the URL and Message will be displayed as shown below.
 
 ![image](https://user-images.githubusercontent.com/42302678/107364663-bfaf2d00-6b01-11eb-8551-db5a7f1d16b2.png)
+
+You can learn more about QZHBCGI and JSON in below link.
+
+[QZHBCGI](http://editorial.mcpressonline.com/web/mcpdf.nsf/wdocs/5080/%24FILE/5080_EXP.pdf)
+
+[Working with JSON in RPGLE using YAJL](https://www.scottklement.com/presentations/Working%20with%20JSON%20in%20RPG.pdf)
  
 
